@@ -1,23 +1,22 @@
-import Image from "next/image";
+import Image from 'next/image';
 import NextLink from 'next/link';
-import { Spacer, Text, useTheme, Link } from "@nextui-org/react"
+import { Spacer, Text, useTheme, Link } from '@nextui-org/react';
+
 
 export const Navbar = () => {
 
-    const { theme } = useTheme();
+    const { theme } = useTheme()
 
-  return (
-    <>
+    return (
         <div style={{
             display: 'flex',
             width: '100%',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'start',
-            padding: '0px 20px',
-            backgroundColor: theme?.colors.gray200.value
+            padding: '0x 50px',
+            backgroundColor: theme?.colors.gray900.value
         }}>
-
             <Image 
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png"
                 alt="icono de la app"
@@ -26,21 +25,20 @@ export const Navbar = () => {
             />
 
             <NextLink href="/" passHref>
-                <Link>    
+                <Link>
                     <Text color='white' h2>P</Text>
-                    <Text h3>ókemon</Text>
+                    <Text color='white' h3>okémon</Text>
                 </Link>
             </NextLink>
 
-            <Spacer css={{ flex: 1}} />
-
-            <NextLink href="/favorites" passHref>
-                <Link>    
-                 <Text color='white'>Favoritos</Text>
-                </Link>
-            </NextLink>
+            <Spacer css={{ flex: 1 }}/>
             
+            <NextLink href="/favorites" passHref>
+                <Link css={{ marginRight: '10px' }}>
+                    <Text color='white'>Favoritos</Text>
+                </Link>
+            </NextLink>
+
         </div>
-    </>
-  )
-}
+    )
+};

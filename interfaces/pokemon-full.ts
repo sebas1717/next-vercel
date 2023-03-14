@@ -123,12 +123,12 @@ export interface Gold {
 }
 
 export interface GenerationIii {
-    emerald:             OfficialArtwork;
+    emerald:             Emerald;
     "firered-leafgreen": Gold;
     "ruby-sapphire":     Gold;
 }
 
-export interface OfficialArtwork {
+export interface Emerald {
     front_default: string;
     front_shiny:   string;
 }
@@ -158,6 +158,10 @@ export interface Other {
     dream_world:        DreamWorld;
     home:               Home;
     "official-artwork": OfficialArtwork;
+}
+
+export interface OfficialArtwork {
+    front_default: string;
 }
 
 export interface Stat {
