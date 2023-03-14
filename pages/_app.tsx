@@ -1,28 +1,14 @@
-import { NextPage } from 'next';
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
+import { NextUIProvider } from '@nextui-org/react';
+import { darkTheme } from '@/themes';
 
-import '../styles/globals.css';
+import '@/styles/globals.css';
 
-
-type NextPageWithLayout = NextPage & {
-  getLayout?: ( page: JSX.Element ) => JSX.Element;
+export default function App({ Component, pageProps }: AppProps) {
+  // return <Component {...pageProps} />
+  return(
+    <NextUIProvider theme={darkTheme}>
+      <Component {...pageProps} />
+    </NextUIProvider>
+  )
 }
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-
-
-function MyApp({ Component, pageProps }: AppPropsWithLayout ) {
-
-  const getLayout = Component.getLayout || ((page) => page );
-
-  // return (
-  //   <>
-  //     <Component {...pageProps} />
-  //   </>
-  // )
-  return getLayout( <Component {...pageProps} /> )
-}
-
-export default MyApp
